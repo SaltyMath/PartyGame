@@ -10,7 +10,7 @@ SolidCompression=yes
 [Files]
 Source: "..\MathieuParty.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\game.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\libcurl.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\libcurl-x64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\7z.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\assets\*"; DestDir: "{app}\assets"; Flags: recursesubdirs ignoreversion
 
