@@ -1,4 +1,3 @@
-// MiniGame1.cpp
 #include "MiniGame1.hpp"
 #include "raylib.h"
 #include <string>
@@ -21,6 +20,7 @@ static float animTimerGardien = 0.0f;
 const float FRAME_TIME = 0.15f;
 static Texture2D spriteBuisson;
 
+// Initialisation
 void InitMiniGame1() {
     terrain = LoadTexture("assets/foot/MiniJeu1.png");
     spriteTireur = LoadTexture("assets/foot/Joueur_Foot.png");
@@ -64,7 +64,7 @@ void UpdateMiniGame1(GameState& gameState) {
         if (IsKeyPressed(KEY_E)) choixJ2 = 'E';
         if (IsKeyPressed(KEY_R)) choixJ2 = 'R';
 
-        // Ne tirer que si les deux ont choisi
+        // Le joueur ne tire qu'après le choix du J2
         if (choixJ1 != '\0' && choixJ2 != '\0') {
             tirEffectue = true;
             tirEnCours = true;
@@ -90,7 +90,7 @@ void UpdateMiniGame1(GameState& gameState) {
     if (tirEnCours) {
         ballePosition.x += balleVitesse;
 
-        // Arrêt = balle s'arrête avant le but
+        // Si arrêt la balle s'arrête avant le but
         float limite = (messageResultat == "OOOH L'ARRÊÊÊÊT !!") ? 700.0f : 800.0f;
 
         if (ballePosition.x > limite) {
@@ -99,7 +99,7 @@ void UpdateMiniGame1(GameState& gameState) {
 
     }
 
-    // Reset manuel avec espace
+    // Reset manuel avec espace après le tir
     if (tirEffectue && !tirEnCours && IsKeyPressed(KEY_SPACE)) {
         ballePosition = { 400, 430 };
         tirEffectue = false;

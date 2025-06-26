@@ -138,7 +138,7 @@ void DrawMiniGame3() {
 
     for (int i = 0; i < (int)snake.size(); i++) {
         SnakePart& part = snake[i];
-        Texture2D texture = snakeBodyRight; // default
+        Texture2D texture = snakeBodyRight; // Position par défaut (vers la droite)
 
         if (i == 0) {
             SnakePart& neck = snake[1];
@@ -160,9 +160,9 @@ void DrawMiniGame3() {
             } else if (prev.y == next.y) {
                 texture = snakeBodyRight; // horizontal
             } else if ((prev.x < part.x && next.y < part.y) || (next.x < part.x && prev.y < part.y)) {
-                texture = snakeBodyUp; // turn case (adjust as needed)
+                texture = snakeBodyUp; // Corps tourne si virage
             } else {
-                texture = snakeBodyDown; // turn case (adjust as needed)
+                texture = snakeBodyDown; // Corps tourne si virage
             }
         }
 

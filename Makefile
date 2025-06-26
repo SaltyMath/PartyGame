@@ -23,7 +23,7 @@
 
 .PHONY: all clean
 
-PROJECT_NAME       ?= mathieuparty
+PROJECT_NAME       ?= game
 RAYLIB_VERSION     ?= 5.5.0
 RAYLIB_PATH        ?= C:/raylib/raylib
 COMPILER_PATH      ?= C:/raylib/w64devkit/bin

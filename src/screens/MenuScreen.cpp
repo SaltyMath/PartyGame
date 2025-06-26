@@ -16,6 +16,7 @@ static MiniGameButton buttons[BUTTON_COUNT];
 static bool initialized = false;
 static float clickCooldown = 0.0f;
 
+// Icônes des minijeux
 void InitMenuScreen() {
     if (initialized) return;
 
@@ -41,11 +42,11 @@ void InitMenuScreen() {
 
     buttons[5].bounds = { 265, 300, 100, 100 };
     buttons[5].texture = LoadTexture("assets/foot/MiniJeu1.png");
-    buttons[5].targetState = GameState::MINIGAME5;
+    buttons[5].targetState = GameState::MINIGAME6;
 
     initialized = true;
 }
-
+// Nettoyage du menu
 void UnloadMenuScreen() {
     if (!initialized) return;
 
@@ -55,13 +56,13 @@ void UnloadMenuScreen() {
 
     initialized = false;
 }
-
+// Mise à jour du menu
 void UpdateMenuScreen(GameState& state) {
 
     if (menuCooldown > 0.0f) return;
 
     Vector2 mouse = GetMousePosition();
-
+        // Retour à la fenêtre précédente si backspace est utilisé dans un jeu
         if (IsKeyPressed(KEY_BACKSPACE)) {
             state = GameState::MENU;
             return;
@@ -76,7 +77,7 @@ void UpdateMenuScreen(GameState& state) {
     }
 }
 
-
+// Affichage du menu
 void DrawMenuScreen() {
     ClearBackground(RAYWHITE);
 

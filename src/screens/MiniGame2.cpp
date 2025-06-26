@@ -1,4 +1,3 @@
-// MiniGame2.cpp
 #include "MiniGame2.hpp"
 #include "raylib.h"
 #include <vector>

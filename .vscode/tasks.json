@@ -15,7 +15,7 @@
                 "command": "C:/raylib/w64devkit/bin/mingw32-make.exe",
                 "args": [
                     "RAYLIB_PATH=C:/raylib/raylib",
-                    "PROJECT_NAME=mathieuparty",
+                    "PROJECT_NAME=game",
                     "PLATFORM=PLATFORM_DESKTOP",
                     "BUILD_MODE=DEBUG"
                 ]

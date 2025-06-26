@@ -23,6 +23,7 @@ void DrawMiniGame6() {
     Rectangle dest = { 0, 0, 800, 600 };
     Vector2 origin = { 0, 0 };
     DrawTexturePro(terrain, src, dest, origin, 0.0f, WHITE);
+    DrawText("À venir. Appuyez sur retour pour revenir au menu", 200, 300, 20, GRAY);
 }
 
 void UnloadMiniGame6() {
