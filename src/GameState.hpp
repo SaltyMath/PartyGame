@@ -3,6 +3,10 @@
 enum class GameState {
     TITLE,
     MENU,
+    COMMANDES_TIR,
+    COMMANDES_MEMORY,
+    COMMANDES_SNAKE,
+    COMMANDES_FE,
     MINIGAME1,
     MINIGAME2,
     MINIGAME3,
