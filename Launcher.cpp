@@ -8,7 +8,7 @@
 
 #define CURRENT_VERSION "1.0.0"
 #define VERSION_URL "https://raw.githubusercontent.com/SaltyMath/PartyGame/main/version.txt"
-#define ZIP_URL "https://github.com/SaltyMath/PartyGame/releases/download/1.0.1/game.zip"
+#define ZIP_URL "https://github.com/SaltyMath/PartyGame/releases/download/v1.0.1/game.zip"
 #define GAME_ZIP "game.zip"
 #define GAME_EXE "game.exe"
 
