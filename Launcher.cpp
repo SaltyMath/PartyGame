@@ -91,12 +91,14 @@ void LaunchGame(const std::string& exeDir) {
 }
 
 int main() {
-    std::cout << "=== Launcher MathieuParty ===\n";
-
     std::string exeDir = GetExecutableDir();
+    std::cout << "=== Launcher MathieuParty ===\n";
     std::cout << "Répertoire d'installation détecté : " << exeDir << "\n";
 
+    std::string versionTempPath = exeDir + "\\version_temp.txt";
     std::string onlineVersion;
+
+    // Vérification version
     if (!DownloadTextFile(VERSION_URL, onlineVersion)) {
         std::cerr << "Impossible de récupérer la version en ligne.\n";
         std::cerr << "Lancement du jeu actuel...\n";
@@ -104,36 +106,39 @@ int main() {
         return 1;
     }
 
-    std::cout << "Version en ligne : " << onlineVersion << " | Locale : " << CURRENT_VERSION << "\n";
+    // Nettoyage (trim)
+    onlineVersion.erase(onlineVersion.find_last_not_of(" \n\r\t") + 1);
 
+    // Comparaison
     if (onlineVersion != CURRENT_VERSION) {
-        std::cout << "Mise à jour disponible. Téléchargement...\n";
+        std::cout << "Mise à jour disponible : " << onlineVersion << "\n";
 
         if (!DownloadFileWithCurl(ZIP_URL, GAME_ZIP, exeDir)) {
-            std::cerr << "Erreur de téléchargement. Lancement annulé.\n";
+            std::cerr << "Erreur de téléchargement. Lancement de la version actuelle...\n";
+            LaunchGame(exeDir);
             return 1;
         }
 
         std::cout << "Décompression...\n";
         if (!ExtractZip(GAME_ZIP, exeDir)) {
-            std::cerr << "Échec de décompression. Lancement annulé.\n";
+            std::cerr << "Erreur de décompression. Lancement de la version actuelle...\n";
+            LaunchGame(exeDir);
             return 1;
         }
 
         std::remove((exeDir + "\\" + GAME_ZIP).c_str());
-        std::cout << "Mise à jour terminée !\n";
+        std::cout << "Mise à jour réussie.\n";
     } else {
-        std::cout << "Aucune mise à jour. Version actuelle à jour.\n";
+        std::cout << "Aucune mise à jour disponible. Version actuelle : " << CURRENT_VERSION << "\n";
     }
 
-    // Cacher le jeu
+    // Cacher game.exe si présent
     std::string gamePath = exeDir + "\\" + GAME_EXE;
     if (SetFileAttributesA(gamePath.c_str(), FILE_ATTRIBUTE_HIDDEN)) {
         std::cout << GAME_EXE << " a été caché.\n";
-    } else {
-        std::cerr << "Impossible de cacher " << GAME_EXE << "\n";
     }
 
+    std::cout << "Lancement du jeu...\n";
     LaunchGame(exeDir);
     return 0;
 }
