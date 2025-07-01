@@ -1,7 +1,7 @@
 [Setup]
 AppName=Mathieu Party
 AppVersion=1.0.0
-DefaultDirName={autopf}\PartyGame
+DefaultDirName={userdocs}\PartyGame
 DefaultGroupName=Mathieu Party
 OutputDir=output
 OutputBaseFilename=MathieuPartySetup
