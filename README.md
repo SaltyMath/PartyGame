@@ -12,7 +12,6 @@
 - Snake
 - Fire Emblem like
 - Tetris
-- Space Invaders
 
 ## 2026
 
