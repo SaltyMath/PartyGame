@@ -3,6 +3,8 @@
 #include "MiniGame2.hpp"
 #include "MiniGame3.hpp"
 #include "MiniGame4.hpp"
+#include "MiniGame5.hpp"
+#include "MiniGame6.hpp"
 #include "raylib.h"
 
 extern float menuCooldown;
@@ -40,9 +42,9 @@ void InitMenuScreen() {
     buttons[3].texture = LoadTexture("assets/FE/felogo.png");
     buttons[3].targetState = GameState::COMMANDES_FE;
 
-    // buttons[4].bounds = { 100, 300, 100, 100 };
-    // buttons[4].texture = LoadTexture("assets/foot/MiniJeu1.png");
-    // buttons[4].targetState = GameState::MINIGAME5;
+    buttons[4].bounds = { 100, 300, 100, 100 };
+    buttons[4].texture = LoadTexture("assets/tetris/TetrisLogo.png");
+    buttons[4].targetState = GameState::COMMANDES_TETRIS;
 
     // buttons[5].bounds = { 265, 300, 100, 100 };
     // buttons[5].texture = LoadTexture("assets/foot/MiniJeu1.png");
@@ -162,6 +164,29 @@ void UpdateCommandesFE(GameState& gameState) {
     if (CheckCollisionPointRec(GetMousePosition(), bouton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         InitMiniGame4();
         gameState = GameState::MINIGAME4;
+    }
+
+    if (IsKeyPressed(KEY_BACKSPACE)) {
+        gameState = GameState::MENU;
+    }
+}
+
+void UpdateCommandesTetris(GameState& gameState) {
+    ClearBackground(RAYWHITE);
+    DrawText("Commandes du Mini-Jeu : Tetris", 100, 80, 28, BLACK);
+    DrawText("W : Tourner le bloc", 100, 140, 20, DARKGRAY);
+    DrawText("A/D : Déplacer le bloc gauche/droite", 100, 170, 20, DARKGRAY);
+    DrawText("S : Descente rapide du bloc", 100, 200, 20, DARKGRAY);
+    DrawText("Espace : Recommencer après la fin de la partie", 100, 230, 20, DARKGRAY);
+    DrawText("Backspace : Revenir au menu", 100, 260, 20, DARKGRAY);
+
+    Rectangle bouton = { 100, 320, 200, 40 };
+    DrawRectangleRec(bouton, LIGHTGRAY);
+    DrawText("Commencer", 120, 330, 20, BLACK);
+
+    if (CheckCollisionPointRec(GetMousePosition(), bouton) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        InitMiniGame5();
+        gameState = GameState::MINIGAME5;
     }
 
     if (IsKeyPressed(KEY_BACKSPACE)) {

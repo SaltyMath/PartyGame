@@ -14,6 +14,7 @@ void UpdateCommandesTir(GameState& state);
 void UpdateCommandesMemory(GameState& state);
 void UpdateCommandesSnake(GameState& state);
 void UpdateCommandesFE(GameState& state);
+void UpdateCommandesTetris(GameState& state);
 
 float menuCooldown = 0.0f;
 
@@ -56,6 +57,8 @@ int main() {
             case GameState::COMMANDES_FE:
                 UpdateCommandesFE(state);
                 break;
+            case GameState::COMMANDES_TETRIS:
+                UpdateCommandesTetris(state);
             case GameState::MINIGAME1:
                 UpdateMiniGame1(state);
                 break;
