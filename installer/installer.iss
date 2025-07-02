@@ -14,6 +14,7 @@ PrivilegesRequired=lowest
 Source: "..\MathieuParty.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\curl.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\7z.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\7z.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
